@@ -1,10 +1,15 @@
 import React from 'react';
+import Row from './Row.js';
 
 import '../styles/base.scss';
 
 class App extends React.Component {
 	render() {
-		return <h1>React component with hot sour hot.</h1>
+		return (
+			<div id="app-container">
+				<Row />
+			</div>
+		)
 	}
 }
 
