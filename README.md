@@ -14,12 +14,12 @@ How to start a project from scratch, plan the development, and set up your devel
 * `npm install react react-dom --save`
 * `npm install babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 webpack webpack-dev-server css-loader style-loader sass-loader node-sass jshint-loader  precss autoprefixer postcss-loader --save-dev`
 * `touch index.html main.js App.js webpack.config.js .babelrc`
-* add a <div> anchor point for the app in index.html
-* add a <script> tag that links to index.js (to be created by webpack) in index.html
+* add a `<div>` anchor point for the app in index.html
+* add a `<script>` tag that links to index.js (to be created by webpack) in index.html
 * setup webpack.config.js (see below)
 * setup .babelrc file (see below)
-* create basic React component in App.js
-* render App component into DOM in main.js
+* create basic React component in App.js (see below)
+* render App component into DOM in main.js (see below)
 * in package.json, add a script to start the webpack server:
 ```JSON
 {
@@ -38,7 +38,7 @@ How to start a project from scratch, plan the development, and set up your devel
 [Basic React/Webpack setup](https://www.youtube.com/watch?v=HXOoe1VSKpo)
 [Webpack tutorial](https://www.youtube.com/watch?annotation_id=annotation_4139363737&feature=iv&src_vid=MhkGQAoc7bc&v=9kJVYpOqcVU)
 
-## Boilerplates
+## Document Boilerplates
 ### index.html
 <!DOCTYPE html>
 <html lang="en">
