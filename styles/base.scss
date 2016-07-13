@@ -1,8 +1,17 @@
+@font-face {
+	font-family: "gotham-med";
+	src: url('fonts/gotham-med/gotham-webfont.eot');
+	src: url('fonts/gotham-med/gotham-webfont.woff2') format('woff2'),
+		 url('fonts/gotham-med/gotham-webfont.woff') format('woff'),
+		 url('fonts/gotham-med/gotham-webfont.ttf') format('ttf'),
+		 url('fonts/gotham-med/gotham-webfont.svg') format('svg');
+}
+
 * {
 
 }
 
 body {
 	color: black;
-	background-color: pink;
+	// background-color: pink;
 }

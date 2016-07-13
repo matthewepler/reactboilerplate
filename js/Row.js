@@ -1,12 +1,30 @@
 import React from 'react';
+import classNames from 'classnames';
 
 // stylesheet
 import '../styles/Row.scss';
 
 class Row extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			hover: false,
+		}
+	}
+
+	toggleHover() {
+		this.setState({ hover: !this.state.hover });
+	}
+
 	render() {
+		const liClasses = classNames({
+			'row-container': true,
+			'safety' : this.props.division === 'safety',
+			'row-hover' : this.state.hover,
+		});
+
 		return (	
-			<ul className="row-container">
+			<ul className={liClasses} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)}>
 				<li className="co-name">{this.props.coName}</li>
 				<ul className="row-data">
 					<li className="row-data-bit">{this.props.perc}</li>
@@ -23,6 +41,7 @@ Row.propTypes = {
 	perc : React.PropTypes.string,
 	step : React.PropTypes.string,
 	date : React.PropTypes.string,
+	division: React.PropTypes.string,
 }
 
 export default Row;

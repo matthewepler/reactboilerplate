@@ -1,3 +1,10 @@
+# TO-DO
+* color based on division prop
+* sort order
+* clickable panels - 1 moves to top, other hidden
+* transitions
+* alert
+
 # REACT APP SETUP
 
 How to start a project from scratch, plan the development, and set up your developer environment.
@@ -12,7 +19,7 @@ How to start a project from scratch, plan the development, and set up your devel
 ## Webpack setup
 * `npm init` in new dir.
 * `npm install react react-dom --save`
-* `npm install babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 webpack webpack-dev-server css-loader style-loader sass-loader node-sass jshint-loader  precss autoprefixer postcss-loader --save-dev`
+* `npm install babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0 webpack webpack-dev-server css-loader style-loader sass-loader node-sass jshint-loader  precss autoprefixer postcss-loader url-loader --save-dev`
 * `touch index.html main.js App.js webpack.config.js .babelrc`
 * add a `<div>` anchor point for the app in index.html
 * add a `<script>` tag that links to index.js (to be created by webpack) in index.html
@@ -82,6 +89,10 @@ module.exports = {
 				test: /\.scss$/, // for my scss sheets. imported in App.js
 				exclude: /node_modules/,
 				loaders: ["style", "css", "sass"]
+			},
+			{ 
+				test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+				loader: 'url-loader?limit=100000' 
 			}
 		]
 	},
