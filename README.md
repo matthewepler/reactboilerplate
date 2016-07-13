@@ -1,5 +1,4 @@
 # TO-DO
-* color based on division prop
 * sort order
 * clickable panels - 1 moves to top, other hidden
 * transitions

@@ -5,5 +5,5 @@ import App from './js/App.js';
 
 const root = document.getElementById('app');
 
-ReactDOM.render(<App/>, root);
+ReactDOM.render(<App pollInterval={2000}/>, root);
 

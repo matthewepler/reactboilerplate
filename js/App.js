@@ -1,17 +1,41 @@
 import React from 'react';
-import Row from './Row.js';
+import _ from 'underscore'
 
+// components
+import Row from './Row.js';;
+
+// data
+import { leads } from './api/leads.js'
+
+// stylesheets
 import '../styles/base.scss';
 
 class App extends React.Component {
+
+	constructor() {
+		super();
+		this.state = { rankChange : false };
+	}
+	
+	getData() {
+		return leads;
+	}
+
+	changeData() {
+		this.setState( {rankChange : true} );
+	}
+
+	componentDidMount() {
+		// setInterval(this.getData, this.props.pollInterval);
+		setTimeout( this.changeData.bind(this), 2000);
+	}
+	
 	render() {
 		return (
 			<div id="app-container">
-				<Row coName="FDNY" perc="50%" step="materials" date="6/6" division="labs"/>
-				<Row coName="Cisco" perc="50%" step="proposal" date="5/20"division="safety"/>
-				<Row coName="Intel" perc="80%" step="demo" date="6/16" division="labs"/>
-				<Row coName="SUNY/LR" perc="80%" step="follow-up" date="6/2" division="labs"/>
-				<Row coName="Beacon Mutual Ins." perc="55%" step="follow-up" date="6/6" division="safety"/>
+				{_.sortBy(this.getData(), 'rank').map((lead) => (
+					<Row coName={lead.coName} perc={lead.perc} step={lead.step} date={lead.date} division={lead.division} rank= {lead.rank === 1 && this.state.rankChange ? "6" : lead.rank} key={lead.rank}/> 
+				))}
 			</div>
 		)
 	}
