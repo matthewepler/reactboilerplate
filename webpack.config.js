@@ -1,9 +1,11 @@
 
 module.exports = {
+	context: __dirname,
 	entry: './app/main.js',
 	output: {
 		path: './build',
 		filename: 'bundle.js',
+		publicPath: 'build',
 	},
 	devServer: {
 		inline: true,  // hot reloading without webpack status bar
