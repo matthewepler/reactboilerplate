@@ -12,22 +12,6 @@ class Row extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		this.setState({ rank: this.props.rank });
-	}
-
-	// componentWillUpdate() {
-	// 	this.setState({ rank: this.props.rank });
-	// }
-
-	componentWillReceiveProps(nextProps) {
-	  if (nextProps.rank !== this.state.rank) {
-	  	console.log("componentWillReceiveProps");
-	  	console.log(nextProps.rank);
-	    this.setState({ rank: nextProps.rank });
-	  }
-	}
-
 	toggleHover() {
 		this.setState({ hover: !this.state.hover });
 	}

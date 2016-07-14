@@ -1,5 +1,13 @@
 # TO-DO
-* sort order
+* get app to serve from ./public
+* add json-server inside root folder
+* hookup server to app
+* test sort order
+	- re-rendering is triggered by changing the state.
+		- in Zoho, I'll get a refreshed array of data every time I poll the database
+		- that will come in and I'll need to compare it to the previous rank
+		- hopefully this will transition nicely. 
+
 * clickable panels - 1 moves to top, other hidden
 * transitions
 * alert

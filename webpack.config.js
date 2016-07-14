@@ -1,8 +1,8 @@
+
 module.exports = {
-	context: __dirname,
-	entry: './main.js',
+	entry: './app/main.js',
 	output: {
-		path: './',
+		path: './build',
 		filename: 'bundle.js',
 	},
 	devServer: {
