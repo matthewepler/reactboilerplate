@@ -1,5 +1,4 @@
 # TO-DO
-* get app to serve from ./public
 * add json-server inside root folder
 * hookup server to app
 * test sort order
