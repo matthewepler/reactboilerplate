@@ -3,13 +3,13 @@ module.exports = {
 	context: __dirname,
 	entry: './app/main.js',
 	output: {
-		path: './build',
+		path: __dirname + '/build',
 		filename: 'bundle.js',
 		publicPath: 'build',
 	},
 	devServer: {
 		inline: true,  // hot reloading without webpack status bar
-		port: 1111,    // channge to whatever
+		port: 8888,    // channge to whatever
 	},
 	devtool: 'source-map',
 	module: {
@@ -32,9 +32,19 @@ module.exports = {
 			{ 
 				test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
 				loader: 'url-loader?limit=100000' 
+			},
+			{ 
+				test: /\.json$/, 
+				loader: 'json-loader' 
 			}
 		]
 	},
+	node: {
+	    console: true,
+	    fs: 'empty',
+	    net: 'empty',
+	    tls: 'empty'
+  	},
 	postcss: function () {
         return [precss, autoprefixer];
     }

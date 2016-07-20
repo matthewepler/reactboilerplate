@@ -1,0 +1,54 @@
+{
+  "leads": [
+    {
+      "id": 1,
+      "coName": "FDNY",
+      "perc": "50%",
+      "step": "materials",
+      "date": "6/5",
+      "division": "labs",
+      "rank": 5,
+      "owner": "Adam Bellin"
+    },
+    {
+      "id": 2,
+      "coName": "Cisco",
+      "perc": "50%",
+      "step": "proposal",
+      "date": "5/20",
+      "division": "safety",
+      "rank": 4,
+      "owner": "Adam Bellin"
+    },
+    {
+      "id": 3,
+      "coName": "Intel",
+      "perc": "80%",
+      "step": "demo",
+      "date": "5/24",
+      "division": "labs",
+      "rank": 1,
+      "owner": "Adam Bellin"
+    },
+    {
+      "id": 4,
+      "coName": "SUNY/LR",
+      "perc": "80%",
+      "step": "follow-up",
+      "date": "6/2",
+      "division": "labs",
+      "rank": 2,
+      "owner": "Adam Bellin"
+    },
+    {
+      "id": 5,
+      "coName": "Beacon Mutual Ins.",
+      "perc": "20%",
+      "step": "call",
+      "date": "5/31",
+      "division": "safety",
+      "rank": 3,
+      "owner": "Adam Bellin"
+    }
+  ]
+}

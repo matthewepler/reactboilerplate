@@ -2,11 +2,13 @@
 	background-color: #963CBD;
 	color: white;
 	display: flex;
+	font-family: 'gotham-med', sans-serif;
 	font-size: .9rem;
 	list-style-type: none;
 	margin: 2px 0;
 	max-width: 350px;
-	font-family: 'gotham-med', sans-serif;
+	opacity: 0;
+	transition: opacity 200ms;
 	
 	> li.co-name {
 		flex: 4;
@@ -44,3 +46,11 @@
 	background-image: linear-gradient( to top, rgba(0, 0, 0, 0.30) , rgba(0, 0, 0, 0.30) 15%, transparent 15% );
 }
 
+.hide {
+	display: none;
+	opacity: 0;
+}
+
+.visible {
+	opacity: 1;
+}
