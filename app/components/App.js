@@ -20,6 +20,7 @@ class App extends React.Component {
 		this.state = { 
 			poll: true,
 			data: [],
+			openReady: false,
 		};
 	}
 	
@@ -76,6 +77,10 @@ class App extends React.Component {
 		leads.map((d) => {
 			if (d.id === id) {
 				d.stack = true;
+				d.expand = true; // currently not using in Row
+				if (d.rank === 1) { // top item in list is unaffected by transitions and related callbacks
+					this.setState({ openReady: true });
+				}
 			} else {
 				d.stack = false;
 				d.visible = false;
@@ -91,21 +96,33 @@ class App extends React.Component {
 	closeOne(id) {
 		let leads = this.state.data;
 		leads.map((d) => {
-			d.stack = true;
+			if (d.id === id) {
+				d.expand = false;
+			} else {
+				d.stack = true;
+			}
 		});
 		
 		this.setState({
 			data: leads,
 			poll: true,
+			openReady: false,
 		});
 	}
-	
-	handleTransitionFinish() {
+
+	handleTransitionFinish(node, element) {
 		let leads = this.state.data;
-		leads.map((d) => {
+		if(this.state.poll) {
+			leads.map((d) => {
 			d.visible = true;
 		});
-		this.setState({ data: leads });
+			this.setState({ 
+				data: leads,
+				poll: this.state.poll,
+			 });	
+		} else {
+			this.setState({ openReady: true });
+		}
 	}
 
 	render() {
@@ -114,7 +131,7 @@ class App extends React.Component {
 			// if one is different, splice the old one and add the new one
 		const leads = _.sortBy(this.state.data, 'rank').map((lead) => {
 			return (
-				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} />
+				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} openReady={this.state.openReady} />
 			)	
 		});
 
@@ -123,7 +140,7 @@ class App extends React.Component {
 		} else {
 			return (
 				<div id="app-container">
-					<FlipMove duration={200} onFinish={this.handleTransitionFinish}>
+					<FlipMove duration={300} onFinish={this.handleTransitionFinish.bind(this)}>
 						{leads}
 					</FlipMove>
 				</div>

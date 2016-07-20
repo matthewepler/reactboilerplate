@@ -130,3 +130,6 @@ import App from './App'
 const root = document.getElementById('app');
 ReactDOM.render(<App/>, root)
 ```
+
+## Notes
+If using Bootstrat React, you'll get annoying warnings sometimes, like with <Panel>. To hide these in the browser consolue, add this regex filter: ^((?!Unknown props).)+$

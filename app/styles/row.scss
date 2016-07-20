@@ -1,14 +1,24 @@
-.row-container {
+$row-width: 350px;
+
+.row-base {
 	background-color: #963CBD;
 	color: white;
-	display: flex;
 	font-family: 'gotham-med', sans-serif;
 	font-size: .9rem;
+	max-width: $row-width;
+	overflow-y: hidden;
+	max-height: 500px;
+}
+
+.row-closed {
+	display: flex;
 	list-style-type: none;
 	margin: 2px 0;
-	max-width: 350px;
 	opacity: 0;
 	transition: opacity 200ms;
+	&:hover {
+		background-image: linear-gradient( to top, rgba(0, 0, 0, 0.30) , rgba(0, 0, 0, 0.30) 15%, transparent 15% );
+	}
 	
 	> li.co-name {
 		flex: 4;
@@ -53,4 +63,36 @@
 
 .visible {
 	opacity: 1;
+}
+
+.row-open {
+	max-width: $row-width;
+	padding: 1rem 1.25rem;
+}
+
+.expand-appear {
+  max-height: 45px;
+}
+
+.expand-appear.expand-appear-active {
+  max-height: 500px;
+  transition: max-height .5s ease-in;
+}
+
+.expand-enter {
+  max-height: 0;
+}
+
+.expand-enter.expand-enter-active {
+  max-height: 500px;
+  transition: max-height .5s ease-in;
+}
+
+.expand-leave {
+  max-height: 500px;
+}
+
+.expand-leave.expand-leave-active {
+  max-height: 0;
+  transition: max-height .5s ease-in;
 }
