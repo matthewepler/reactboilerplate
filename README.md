@@ -1,5 +1,4 @@
 # TO-DO
-* alert
 * animate in new data bits
 
 # REACT APP SETUP

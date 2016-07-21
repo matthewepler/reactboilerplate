@@ -22,6 +22,7 @@ class App extends React.Component {
 			poll: true,
 			data: [],
 			openReady: false,
+			stackSet: true,
 		};
 	}
 	
@@ -79,7 +80,6 @@ class App extends React.Component {
 		leads.map((d) => {
 			if (d.id === id) {
 				d.stack = true;
-				d.expand = true; // currently not using in Row
 				if (d.rank === 1) { // top item in list is unaffected by transitions and related callbacks
 					this.setState({ openReady: true });
 				}
@@ -92,18 +92,14 @@ class App extends React.Component {
 		this.setState({
 			data: leads,
 			poll: false,
+			stackSet: false,
 		});
 	}
 
 	closeOne(id) {
 		let leads = this.state.data;
 		leads.map((d) => {
-			if (d.id === id) {
-				d.expand = false;
-				d.alert = false;
-			} else {
-				d.stack = true;
-			}
+			d.stack = true;
 		});
 		
 		this.setState({
@@ -115,31 +111,31 @@ class App extends React.Component {
 
 	handleTransitionFinish(node, element) {
 		let leads = this.state.data;
-		if(this.state.poll) {
-			leads.map((d) => {
-			d.visible = true;
-		});
+		if(this.state.poll) { // if going back to a stacked list (exiting a single expanded)...
+				leads.map((d) => { // turn all rows back to visible
+				d.visible = true;
+			});
 			this.setState({ 
 				data: leads,
-				poll: this.state.poll,
+				stackSet: true, // the stack is back in place, turn alert animation back on
 			 });	
 		} else {
-			this.setState({ openReady: true });
+			this.setState({ openReady: true }); // if expanding one row, let it open after it's at the top
 		}
 	}
 
 	render() {
-		// compare prevLeads and currLeads
+				// compare prevLeads and currLeads
 		// one by one, compare the list, 
 			// if one is different, splice the old one and add the new one
 		const leads = _.sortBy(this.state.data, 'rank').map((lead) => {
 			return (
-				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} openReady={this.state.openReady} />
+				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} openReady={this.state.openReady} stackSet={this.state.stackSet}/>
 			)	
 		});
 
 		if (leads.length < 1) {
-			return <h1>Loading...</h1>
+			return <div id="loading">Loading...</div>
 		} else {
 			return (
 				<div id="app-container">
