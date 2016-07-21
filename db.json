@@ -5,7 +5,7 @@
       "coName": "FDNY",
       "perc": "50%",
       "step": "materials",
-      "date": "6/5",
+      "date": "7/29",
       "division": "labs",
       "rank": 5,
       "owner": "Adam Bellin"
@@ -15,7 +15,7 @@
       "coName": "Cisco",
       "perc": "50%",
       "step": "proposal",
-      "date": "5/20",
+      "date": "7/29",
       "division": "safety",
       "rank": 4,
       "owner": "Adam Bellin"
@@ -25,7 +25,7 @@
       "coName": "Intel",
       "perc": "80%",
       "step": "demo",
-      "date": "5/24",
+      "date": "7/29",
       "division": "labs",
       "rank": 1,
       "owner": "Adam Bellin"
@@ -35,7 +35,7 @@
       "coName": "SUNY/LR",
       "perc": "80%",
       "step": "follow-up",
-      "date": "6/2",
+      "date": "7/29",
       "division": "labs",
       "rank": 2,
       "owner": "Adam Bellin"
@@ -45,7 +45,7 @@
       "coName": "Beacon Mutual Ins.",
       "perc": "20%",
       "step": "call",
-      "date": "5/31",
+      "date": "7/29",
       "division": "safety",
       "rank": 3,
       "owner": "Adam Bellin"

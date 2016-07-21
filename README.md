@@ -1,7 +1,6 @@
 # TO-DO
-* clickable panels - 1 moves to top, other hidden
-	* row expands - use Bootstrap. 
 * alert
+* animate in new data bits
 
 # REACT APP SETUP
 

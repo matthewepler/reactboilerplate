@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'underscore'
 import Ajax from 'simple-ajax';
 import FlipMove from 'react-flip-move';
+import * as parseData from './helpers/parseData.js';
 
 // components
 import Row from './Row.js';;
@@ -41,6 +42,11 @@ class App extends React.Component {
 			data.map((d) => { 
 				d.stack = true; 
 				d.visible = true;
+				if (parseData.date(d.date)) {
+					d.alert = true;
+				} else {
+					d.alert = false;
+				}
 			});
 			this.setState({ data: data });
 		});

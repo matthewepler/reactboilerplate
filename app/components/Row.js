@@ -13,6 +13,7 @@ class Row extends React.Component {
 		this.state = {
 			open: false,
 			openReady: false,
+			alertOn: false,
 		}
 	}
 
@@ -38,6 +39,10 @@ class Row extends React.Component {
 			'safety' : this.props.lead.division === 'safety',
 			'hide' : !this.props.lead.stack, 
 			'visible' : this.props.lead.visible,
+			// 'alert' : this.state.alertOn,
+			'animated pulse infinite' : this.props.lead.alert,
+			// 'pulse' : this.state.alertOn,
+			// 'infinite' : this.state.alertOn,
 		});
 
 		if (this.props.openReady) {

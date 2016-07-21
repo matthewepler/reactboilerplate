@@ -96,3 +96,14 @@ $row-width: 350px;
   max-height: 0;
   transition: max-height .5s ease-in;
 }
+
+@keyframes alert {
+	0%, 100%{opacity: 1;}
+	50%		{opacity: 0;}
+}
+
+.alert {
+	animation-name: alert;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+}
