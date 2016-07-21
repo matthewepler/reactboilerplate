@@ -1,5 +1,6 @@
 # TO-DO
 * animate in new data bits
+	- https://parseint.wordpress.com/2015/06/09/how-to-animate-simple-text-change-in-reactjs/
 
 # REACT APP SETUP
 

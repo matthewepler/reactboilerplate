@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Panel } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import AnimateOnChange from 'react-animate-on-change';
 
 
 // stylesheet
@@ -50,13 +51,18 @@ class Row extends React.Component {
 				</ReactCSSTransitionGroup>
 			)
 		} else {
-			return (	
+			return (
 				<ul className={rowClasses} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)} onClick={this.handleClickClosed.bind(this)}>
 					<li className="co-name">{this.props.lead.coName}</li>
 					<ul className="row-data">
 						<li className="row-data-bit">{this.props.lead.perc}</li>
 						<li className="row-data-bit">{this.props.lead.step}</li>
-						<li className="row-data-bit flipInX">{this.props.lead.date}</li>
+						<AnimateOnChange
+						baseClassName="date" 
+          				animationClassName="date-new" 
+          				animate={true}>
+							<li className="row-data-bit">{this.props.lead.date}</li>
+						</AnimateOnChange>
 					</ul>
 				</ul>
 			)

@@ -112,3 +112,12 @@ $row-width: 350px;
 	animation-duration: 1.5s;
 	animation-iteration-count: infinite;
 }
+
+.date-new {
+  animation: date-keyframes 1s;
+}
+
+@keyframes date-keyframes {
+  from {opacity: 0.01}
+  to {opacity: 1}
+}
