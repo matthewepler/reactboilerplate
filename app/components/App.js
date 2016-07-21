@@ -60,10 +60,6 @@ class App extends React.Component {
 		});
 
 		ajax.send();
-
-
-		// or just return static data from ./app/api/leads.js
-		// return leads;
 	}
 
 	componentDidMount() {
@@ -104,6 +100,7 @@ class App extends React.Component {
 		leads.map((d) => {
 			if (d.id === id) {
 				d.expand = false;
+				d.alert = false;
 			} else {
 				d.stack = true;
 			}

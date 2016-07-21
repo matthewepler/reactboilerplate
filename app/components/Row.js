@@ -17,6 +17,10 @@ class Row extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		this.setState({ alertOn: this.props.lead.alert });
+	}
+
 	toggleHover(event) {
 		this.setState({ hover: !this.state.hover });
 	}
@@ -26,6 +30,7 @@ class Row extends React.Component {
 		
 		if (this.state.open) {
 			this.props.expandOne(this.props.lead.id);
+			if (this.props.lead.alert) this.setState({ alertOn: false });
 		} else {
 			this.props.closeOne(this.props.lead.id);
 		} 
@@ -39,10 +44,7 @@ class Row extends React.Component {
 			'safety' : this.props.lead.division === 'safety',
 			'hide' : !this.props.lead.stack, 
 			'visible' : this.props.lead.visible,
-			// 'alert' : this.state.alertOn,
-			'animated pulse infinite' : this.props.lead.alert,
-			// 'pulse' : this.state.alertOn,
-			// 'infinite' : this.state.alertOn,
+			'animated pulse infinite' : this.state.alertOn,
 		});
 
 		if (this.props.openReady) {
