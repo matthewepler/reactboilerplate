@@ -58,10 +58,10 @@ class Row extends React.Component {
 						<li className="row-data-bit">{this.props.lead.perc}</li>
 						<li className="row-data-bit">{this.props.lead.step}</li>
 						<AnimateOnChange
-						baseClassName="date" 
-          				animationClassName="date-new" 
-          				animate={true}>
-							<li className="row-data-bit">{this.props.lead.date}</li>
+							baseClassName="date" 
+	          				animationClassName="date-new" 
+	          				animate={true}>
+								<li className="row-data-bit">{this.props.lead.date}</li>
 						</AnimateOnChange>
 					</ul>
 				</ul>
