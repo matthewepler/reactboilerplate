@@ -1,12 +1,11 @@
 # TO-DO
-* animate in new data bits
-	- the component should only be updated if there is a change anyway...so fix it in the App level. 
-	- npm deep-equal
-	- but if the App state is changed, don't all of the children get re-rendered?
 
 
 * disconnection notice
 * blank filler data for all fields if no connection upon start (see react's getDefaultProps method)
+
+# QUESTIONS
+* Should I filter what components get updates in the parent component, or at the children? (see AnimateOnChange for Row components and their componentShouldUpdate + componentDidUpdate methods)
 
 # REACT APP SETUP
 

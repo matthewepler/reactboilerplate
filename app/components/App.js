@@ -130,7 +130,7 @@ class App extends React.Component {
 			// if one is different, splice the old one and add the new one
 		const leads = _.sortBy(this.state.data, 'rank').map((lead) => {
 			return (
-				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} openReady={this.state.openReady} stackSet={this.state.stackSet}/>
+				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet}/>
 			)	
 		});
 

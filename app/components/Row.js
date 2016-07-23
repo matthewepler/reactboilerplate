@@ -19,11 +19,11 @@ class Row extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		if (equal(nextProps.lead, this.props.lead)) {
-			return false;
-		} else {
+		if (!equal(nextProps, this.props)) {
 			return true;
-		}
+		} else {
+			return false;
+		} 
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -45,6 +45,7 @@ class Row extends React.Component {
 	}
 
 	handleClickClosed() {
+		console.log('click');
 		this.state.open = !this.state.open;
 		this.props.expandOne(this.props.lead.id);
 	}
@@ -77,9 +78,24 @@ class Row extends React.Component {
 		} else {
 			return (
 				<ul className={rowClasses} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)} onClick={this.handleClickClosed.bind(this)}>
-					<li className="co-name">{this.props.lead.coName}</li>
+					<li className="co-name">
+					<AnimateOnChange
+								baseClassName="animated" 
+        				animationClassName="flipInX" 
+        				animate={this.state.updates.includes("coName")}>
+									{this.props.lead.coName}
+							</AnimateOnChange>	
+					</li>
+					
 					<ul className="row-data">
-						<li className="row-data-bit">{this.props.lead.perc}</li>
+						<li className="row-data-bit">
+							<AnimateOnChange
+								baseClassName="animated" 
+        				animationClassName="flipInX" 
+        				animate={this.state.updates.includes("perc")}>
+									{this.props.lead.perc}
+							</AnimateOnChange>	
+						</li>
 						
 						<li className="row-data-bit">
 							<AnimateOnChange
