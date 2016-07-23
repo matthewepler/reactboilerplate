@@ -1,7 +1,12 @@
 # TO-DO
 * animate in new data bits
-	- https://parseint.wordpress.com/2015/06/09/how-to-animate-simple-text-change-in-reactjs/
-* npm rm react-animate-on-change
+	- the component should only be updated if there is a change anyway...so fix it in the App level. 
+	- npm deep-equal
+	- but if the App state is changed, don't all of the children get re-rendered?
+
+
+* disconnection notice
+* blank filler data for all fields if no connection upon start (see react's getDefaultProps method)
 
 # REACT APP SETUP
 

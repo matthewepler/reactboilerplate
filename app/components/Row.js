@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Panel } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AnimateOnChange from 'react-animate-on-change';
+import equal from 'deep-equal';
 
 
 // stylesheet
@@ -13,7 +14,30 @@ class Row extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
+			updates: [],
 		}
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		if (equal(nextProps.lead, this.props.lead)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		let updates = [];
+		for (let item in nextProps.lead) {
+			if (!equal(nextProps.lead[item], this.props.lead[item])) {
+				updates.push(item);
+			}
+		}
+		this.setState({updates: updates});
+	}
+
+	componentDidUpdate() {
+		this.setState({updates: []});
 	}
 
 	toggleHover(event) {
@@ -39,7 +63,7 @@ class Row extends React.Component {
 			'safety' : this.props.lead.division === 'safety',
 			'hide' : !this.props.lead.stack, 
 			'visible' : this.props.lead.visible,
-			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet,
+			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet, //animate.min.css
 		});
 
 		if (this.props.openReady) {
@@ -56,13 +80,24 @@ class Row extends React.Component {
 					<li className="co-name">{this.props.lead.coName}</li>
 					<ul className="row-data">
 						<li className="row-data-bit">{this.props.lead.perc}</li>
-						<li className="row-data-bit">{this.props.lead.step}</li>
-						<AnimateOnChange
-							baseClassName="date" 
-	          				animationClassName="date-new" 
-	          				animate={true}>
-								<li className="row-data-bit">{this.props.lead.date}</li>
-						</AnimateOnChange>
+						
+						<li className="row-data-bit">
+							<AnimateOnChange
+								baseClassName="animated" 
+        				animationClassName="flipInX" 
+        				animate={this.state.updates.includes("step")}>
+									{this.props.lead.step}
+							</AnimateOnChange>
+						</li>
+						
+						<li className="row-data-bit">
+							<AnimateOnChange
+								baseClassName="animated" 
+        				animationClassName="flipInX" 
+        				animate={this.state.updates.includes("date")}>
+									{this.props.lead.date}
+							</AnimateOnChange>
+						</li>
 					</ul>
 				</ul>
 			)
