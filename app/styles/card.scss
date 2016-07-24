@@ -1,0 +1,7 @@
+$card-width: 350px;
+
+.card-container {
+	background: blue;
+	display: inline-block;
+	width: calc(100% * 0.25);
+}

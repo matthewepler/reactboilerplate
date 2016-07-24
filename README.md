@@ -1,6 +1,9 @@
 # TO-DO
+* fill missing entries for cards with <5
 
-
+* check rank change transitions
+* rank calculation of rows
+* rank calculation of cards
 * disconnection notice
 * blank filler data for all fields if no connection upon start (see react's getDefaultProps method)
 

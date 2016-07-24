@@ -55,7 +55,6 @@ class Row extends React.Component {
 		this.props.closeOne(this.props.lead.id);
 	} 
 	
-
 	render() {
 		const rowClasses = classNames({
 			'row-base': true,
