@@ -14,6 +14,7 @@ class Card extends React.Component{
 		super();
 		this.state = { 
 			poll: true, // remove
+			owner: [],
 			data: [],
 			openReady: false, 
 			stackSet: true, 
@@ -21,8 +22,16 @@ class Card extends React.Component{
 	}
 
 	componentWillMount() {
-		this.setState( {data: this.props.ownerObj.leads} );
-		// console.log(this.props.ownerObj.leads);
+		const ownerSplit =  this.props.ownerObj.owner.split(' ');	
+		this.setState({ 
+			owner: [ ownerSplit[0].trim(), ownerSplit[1].trim() ] 
+		});
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState( {
+			data: nextProps.ownerObj.leads,
+		} );
 	}
 	
 	expandOne(id) {
@@ -74,12 +83,40 @@ class Card extends React.Component{
 		}
 	}
 
-	render() {
-		const leads = _.sortBy(this.state.data, 'rank').map((lead) => {
+	prepData() {
+		const leads = _.sortBy(this.state.data, 'rank');
+		
+		if (leads.length < 5) {
+			const diff = 5 - leads.length;
+			for (var i=0; i<diff; i++) {
+				leads.push({
+					id: i,
+					coName: '-',
+					perc: '-',
+				    step: '-',
+				    date: '-',
+				    division: '-',
+				    rank: '5',
+				    owner: '-',
+				    alert: false,
+				    stack: true,
+				    visible: true
+				});
+			}
+		}
+		
+		// console.log(leads);
+		const result = leads.map((lead) => {
 			return (
 				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet}/>
 			)	
 		});
+		return result;
+	}
+
+	render() {
+		const leads = this.prepData();
+		const imageURL = "assets/img/" + this.state.owner.join('').toLowerCase() + ".jpg"
 
 		if (leads.length < 1) {
 			return <div id="loading">Loading...</div>
@@ -87,9 +124,16 @@ class Card extends React.Component{
 			return (
 				<div className="card-container">
 					<div className="card-header">
-						<h1>Name here.</h1>
+						<div className="person">
+							<img className="photo" src={imageURL} alt="owner photo" />
+							<div className="nametag">
+								<h1>{this.state.owner[0]}</h1>
+								<h1>{this.state.owner[1]}</h1>
+							</div>
+							<div className="card-rank">{this.props.rank + 1}</div>
+						</div>
 					</div>
-					<FlipMove duration={300} onFinish={this.handleTransitionFinish.bind(this)}>
+					<FlipMove className="row-container" duration={300} onFinish={this.handleTransitionFinish.bind(this)}>
 						{leads}
 					</FlipMove>
 				</div>

@@ -1,3 +1,14 @@
+$lg-screen:  1600;
+$med-screen: 768;
+$sm-screen:  480;
+
+$card-height: 369px;
+$card-width: 400px;
+
+@mixin forLargeScreens($media) {
+	@media (min-width: $media/16+em) { @content; }
+}
+
 @font-face {
 	font-family: "gotham-med";
 	src: url('fonts/gotham-med/gotham-webfont.eot');
@@ -7,16 +18,34 @@
 		 url('fonts/gotham-med/gotham-webfont.svg') format('svg');
 }
 
+@font-face {
+	font-family: "gotham-lt";
+	src: url('fonts/gotham-lt/gothmlig-webfont.eot');
+	src: url('fonts/gotham-lt/gothmlig-webfont.woff2') format('woff2'),
+		 url('fonts/gotham-lt/gothmlig-webfont.woff') format('woff'),
+		 url('fonts/gotham-lt/gothmlig-webfont.ttf') format('ttf'),
+		 url('fonts/gotham-lt/gothmlig-webfont.svg') format('svg');
+}
+
 * {
+
+}
+
+h1 {
+	font-family: gotham-lt;
 
 }
 
 body {
 	color: black;
-	// background-color: pink;
 }
 
 .app-container {
-	// display: flex;
+	align-content: flex-end;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;	
+	margin: 4% auto;
 }
 

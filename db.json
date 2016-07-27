@@ -11,16 +11,6 @@
       "owner": "Adam Bellin"
     },
     {
-      "id": 2,
-      "coName": "Cisco",
-      "perc": "50%",
-      "step": "proposal",
-      "date": "8/30",
-      "division": "safety",
-      "rank": 4,
-      "owner": "Adam Bellin"
-    },
-    {
       "id": 3,
       "coName": "Intel",
       "perc": "80%",
@@ -203,8 +193,8 @@
     {
       "id": 21,
       "coName": "AIG",
-      "perc": "80%",
-      "step": "materials",
+      "perc": "60%",
+      "step": "hi",
       "date": "8/30",
       "division": "labs",
       "rank": 1,

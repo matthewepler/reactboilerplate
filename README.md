@@ -1,5 +1,6 @@
 # TO-DO
-* fill missing entries for cards with <5
+* data bits not updating
+* stop polling on any expand
 
 * check rank change transitions
 * rank calculation of rows

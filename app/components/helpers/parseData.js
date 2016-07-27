@@ -3,6 +3,7 @@ export function parseData(event, data) {
 	let knownNames = [];
 
 	data.map((d) => { 
+		// ** theoretically, this is where you could filter only new updates
 		// add defaults for use in components later
 		d.stack = true; 
 		d.visible = true;

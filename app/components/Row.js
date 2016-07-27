@@ -61,6 +61,7 @@ class Row extends React.Component {
 			'row-closed': !this.props.openReady, // triggered at end of animation of a row to the top
 			'row-open' : this.props.openReady,
 			'safety' : this.props.lead.division === 'safety',
+			'blank' : this.props.lead.division === '-',
 			'hide' : !this.props.lead.stack, 
 			'visible' : this.props.lead.visible,
 			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet, //animate.min.css

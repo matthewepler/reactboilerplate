@@ -1,4 +1,5 @@
-$row-width: 350px;
+// breaks at 1575px
+@import './base.scss';
 
 .loading {
 	text-align: center;
@@ -10,9 +11,8 @@ $row-width: 350px;
 	color: white;
 	font-family: 'gotham-med', sans-serif;
 	font-size: .9rem;
-	max-width: $row-width;
+	max-width: $card-width;
 	overflow-y: hidden;
-	max-height: 500px;
 }
 
 .row-closed {
@@ -29,6 +29,8 @@ $row-width: 350px;
 		flex: 4;
 		margin-left: -1rem;
 		padding: 1rem 0;
+		white-space: nowrap;
+		overflow-x: hidden;
 	}
 
 	> ul.row-data {
@@ -57,6 +59,11 @@ $row-width: 350px;
 	background-color: #FF6900;
 }
 
+.blank {
+	background-color: white;
+	color: #7F7F7F;
+}
+
 .row-hover { 
 	background-image: linear-gradient( to top, rgba(0, 0, 0, 0.30) , rgba(0, 0, 0, 0.30) 15%, transparent 15% );
 }
@@ -71,7 +78,7 @@ $row-width: 350px;
 }
 
 .row-open {
-	max-width: $row-width;
+	max-width: $card-width;
 	padding: 1rem 1.25rem;
 }
 
@@ -80,7 +87,7 @@ $row-width: 350px;
 }
 
 .expand-appear.expand-appear-active {
-  max-height: 500px;
+  max-height: $card-height;
   transition: max-height .5s ease-in;
 }
 
@@ -89,12 +96,12 @@ $row-width: 350px;
 }
 
 .expand-enter.expand-enter-active {
-  max-height: 500px;
+  max-height: $card-height;
   transition: max-height .5s ease-in;
 }
 
 .expand-leave {
-  max-height: 500px;
+  max-height: $card-height;
 }
 
 .expand-leave.expand-leave-active {

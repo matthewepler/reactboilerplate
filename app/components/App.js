@@ -21,11 +21,11 @@ class App extends React.Component {
 	componentDidMount() {
 		this.getData();
 
-		// setInterval(() => {
-		// 	if (this.state.poll) {
-		// 		this.getData();
-		// 	}
-		// },  this.props.pollInterval);
+		setInterval(() => {
+			if (this.state.poll) {
+				this.getData();
+			}
+		},  this.props.pollInterval);
 	}
 
 	getData() {
@@ -56,9 +56,10 @@ class App extends React.Component {
 		ajax.send();
 	}
 
+
 	render() {
 		const cards = this.state.data.map( (d, index) => {
-			return <Card ownerObj={d} key={index}/>
+			return <Card ownerObj={d} key={index} rank={index}/>
 		});
 		
 		return (
