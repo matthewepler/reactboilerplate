@@ -81,7 +81,12 @@ class Row extends React.Component {
 			return (
 				<ReactCSSTransitionGroup transitionName="expand" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
 					<div className={rowClasses} onClick={this.handleClickOpen.bind(this)} key={1} >
-					 	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+					 	<div className="row-expanded">
+					 		<li>{this.props.lead.coName}</li>
+					 		<br/>
+					 		<br/>
+					 		<p> placeholder for data view </p>
+				 		</div>
 					</div>
 				</ReactCSSTransitionGroup>
 			)

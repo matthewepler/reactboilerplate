@@ -1,12 +1,8 @@
-* change alert animation
 * placeholder for expanded Row info
-
+* remove react bootstrap
 
 * rank calculation of rows
 * rank calculation of cards
-* disconnection notice
-* blank filler data for all fields if no connection upon start (see react's getDefaultProps method)
-* remove react bootstrap
 
 # QUESTIONS
 * Should I filter what components get updates in the parent component, or at the children? (see AnimateOnChange for Row components and their componentShouldUpdate + componentDidUpdate methods)

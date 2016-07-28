@@ -113,6 +113,15 @@
   transition: max-height .5s ease-in;
 }
 
+.row-expanded {
+	margin-top: 2px;
+	padding-left: 4px;
+	
+	li {
+		list-style-type: none;
+	}
+}
+
 // @keyframes alert {
 // 	0%, 100%{opacity: 1;}
 // 	50%		{opacity: 0;}

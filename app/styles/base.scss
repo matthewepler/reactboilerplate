@@ -50,7 +50,7 @@ body {
 	margin: 2% auto;
 
 	.skin-button {
-		font-size: 20pt;
+		font-size: 16pt;
 		padding: 1rem 1rem;
 		position: absolute;
 		right: 0;
@@ -76,3 +76,7 @@ body {
 	box-shadow: none;
 }
 
+.app-loading {
+	text-align: center;
+	margin: 20% auto;
+}
