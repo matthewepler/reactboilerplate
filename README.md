@@ -1,4 +1,4 @@
-* placeholder for expanded Row info
+* blanks are moving
 * remove react bootstrap
 
 * rank calculation of rows

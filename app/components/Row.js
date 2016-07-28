@@ -49,7 +49,7 @@ class Row extends React.Component {
 	}
 
 	handleClickClosed(event) {
-		if (!event.target.classList.contains('blank')) {
+		if (!event.currentTarget.classList.contains('blank')) {
 			this.state.open = !this.state.open;
 			this.props.expandOne(this.props.lead.id);	
 		}
@@ -85,7 +85,7 @@ class Row extends React.Component {
 					 		<li>{this.props.lead.coName}</li>
 					 		<br/>
 					 		<br/>
-					 		<p> placeholder for data view </p>
+					 		<p> [placeholder for data view] </p>
 				 		</div>
 					</div>
 				</ReactCSSTransitionGroup>
