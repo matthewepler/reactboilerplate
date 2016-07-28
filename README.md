@@ -1,7 +1,8 @@
 # TO-DO
-* when data-bit gets udpated while a different row is open in the same card, all of the rows open. Example : Oliver's Accuenture is open. AIG is updated on the server. Breaks. Related to 'visible' data point being reset with new props. 
+* dark theme + button
+* placeholder for expanded Row info
 
-* check rank change transitions
+
 * rank calculation of rows
 * rank calculation of cards
 * disconnection notice

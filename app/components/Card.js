@@ -65,15 +65,8 @@ class Card extends React.Component{
 	}
 
 	handleTransitionFinish(node, element) {
-		let leads = this.state.data;
-		if(this.state.poll) { // if going back to a stacked list (exiting a single expanded)...
-				leads.map((d) => { // turn all rows back to visible
-				d.visible = true;
-			});
-			this.setState({ 
-				data: leads,
-				stackSet: true, // the stack is back in place, turn alert animation back on
-			 });	
+		if(this.state.poll) { 
+			this.setState({ stackSet: true });  // the stack is back in place, turn alert animation back on
 		} else {
 			this.setState({ openReady: true }); // if expanding one row, let it open after it's at the top
 		}
@@ -81,7 +74,6 @@ class Card extends React.Component{
 
 	getLeads() { 
 		const leads = _.sortBy(this.state.data, 'rank');
-		
 		const result = leads.map((lead) => {
 			return (
 				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet} openId={this.state.openId} />

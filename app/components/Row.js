@@ -35,7 +35,10 @@ class Row extends React.Component {
 				updates.push(item);
 			}
 		}
-		this.setState({updates: updates});
+		this.setState({
+			updates: updates,
+			visible: this.props.openId == null || this.props.openId === this.props.lead.id,
+		});
 	}
 
 	componentDidUpdate() {
@@ -59,6 +62,10 @@ class Row extends React.Component {
 	} 
 	
 	render() {
+		if (this.props.lead.owner.includes('Oliver')) {
+			// tests here
+		}
+		
 		const rowClasses = classNames({
 			'row-base': true,
 			'row-closed': !this.props.openReady, // triggered at end of animation of a row to the top
@@ -66,7 +73,7 @@ class Row extends React.Component {
 			'safety' : this.props.lead.division === 'safety',
 			'blank' : this.props.lead.division === '-',
 			'hide' : this.props.openId != null && this.props.openId !== this.props.lead.id, 
-			'visible' : this.props.openId == null || this.props.openId === this.props.lead.id,
+			'visible' : this.state.visible,
 			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet, //animate.min.css
 		});
 
