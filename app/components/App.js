@@ -41,7 +41,6 @@ class App extends React.Component {
 		ajax.on('success', (event, data) => {
 			// parseData returns array of objects organized by name: { owner: name, leads: [{}, {}, ...] }
 			const result = parseData(event, data);
-			console.log(result);
 			this.setState({ data: result });
 		});
 

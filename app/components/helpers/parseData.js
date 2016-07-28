@@ -4,8 +4,8 @@ export function parseData(event, data) {
 
 	data.map((d) => { 
 		// add defaults for use in components later
-		d.stack = true; 		// affects 'hide' class for a Row (display: none, opacity: 0)
-		d.visible = true;		// affects 'visible' class for a Row (opacity: 1)
+		// d.stack = true; 		// affects 'hide' class for a Row (display: none, opacity: 0)
+		// d.visible = true;		// affects 'visible' class for a Row (opacity: 1)
 		if (checkDate(d.date)) {
 			d.alert = true;		// afects alert animation class (controlled by animate.min.css)	
 		} else {

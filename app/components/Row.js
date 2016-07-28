@@ -14,7 +14,9 @@ class Row extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
+			stack: true,
 			updates: [],
+			visible: true,
 		}
 	}
 
@@ -48,10 +50,7 @@ class Row extends React.Component {
 		if (!event.target.classList.contains('blank')) {
 			this.state.open = !this.state.open;
 			this.props.expandOne(this.props.lead.id);	
-		} else {
-			console.log("blank, not doin nuthin");
 		}
-		
 	}
 		
 	handleClickOpen() {
@@ -66,8 +65,8 @@ class Row extends React.Component {
 			'row-open' : this.props.openReady,
 			'safety' : this.props.lead.division === 'safety',
 			'blank' : this.props.lead.division === '-',
-			'hide' : !this.props.lead.stack, 
-			'visible' : this.props.lead.visible,
+			'hide' : this.props.openId != null && this.props.openId !== this.props.lead.id, 
+			'visible' : this.props.openId == null || this.props.openId === this.props.lead.id,
 			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet, //animate.min.css
 		});
 
