@@ -109,22 +109,22 @@
   transition: max-height .5s ease-in;
 }
 
-@keyframes alert {
-	0%, 100%{opacity: 1;}
-	50%		{opacity: 0;}
-}
+// @keyframes alert {
+// 	0%, 100%{opacity: 1;}
+// 	50%		{opacity: 0;}
+// }
 
-.alert {
-	animation-name: alert;
-	animation-duration: 1.5s;
-	animation-iteration-count: infinite;
-}
+// .alert {
+// 	animation-name: alert;
+// 	animation-duration: 1.5s;
+// 	animation-iteration-count: infinite;
+// }
 
-.date-new {
-  animation: date-keyframes 0.5s;
-}
+// .date-new {
+//   animation: date-keyframes 0.5s;
+// }
 
-@keyframes date-keyframes {
-  from {opacity: 0.01}
-  to {opacity: 1}
-}
+// @keyframes date-keyframes {
+//   from {opacity: 0.01}
+//   to {opacity: 1}
+// }

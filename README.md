@@ -1,6 +1,6 @@
 # TO-DO
-* data bits not updating
-* stop polling on any expand
+* data-bits not updating
+* when data-bit gets udpated while a different row is open in the same card, all of the rows open. Example : Oliver's Accuenture is open. AIG is updated on the server. Breaks. Related to 'visible' data point being reset with new props. 
 
 * check rank change transitions
 * rank calculation of rows

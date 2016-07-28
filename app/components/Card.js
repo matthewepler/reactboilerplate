@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'underscore'
 import FlipMove from 'react-flip-move';
+import equal from 'deep-equal';
 
 // components
 import Row from './Row.js';;
@@ -22,16 +23,23 @@ class Card extends React.Component{
 	}
 
 	componentWillMount() {
-		const ownerSplit =  this.props.ownerObj.owner.split(' ');	
-		this.setState({ 
-			owner: [ ownerSplit[0].trim(), ownerSplit[1].trim() ] 
-		});
+
+		const ownerSplit =  this.props.ownerObj.owner.split(' ');
+		this.setState({
+			owner: [ ownerSplit[0].trim(), ownerSplit[1].trim() ],
+			data: this.props.ownerObj.leads
+		})
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState( {
-			data: nextProps.ownerObj.leads,
-		} );
+		// if (this.state.owner[0] == 'Oliver') {
+		// 	console.log(nextProps.ownerObj.leads[0]);
+		// }
+		if (!equal(nextProps, this.props)) {
+			this.setState( {
+				data: nextProps.ownerObj.leads,
+			} );
+		}
 	}
 	
 	expandOne(id) {
@@ -83,29 +91,9 @@ class Card extends React.Component{
 		}
 	}
 
-	prepData() {
+	getLeads() { 
 		const leads = _.sortBy(this.state.data, 'rank');
 		
-		if (leads.length < 5) {
-			const diff = 5 - leads.length;
-			for (var i=0; i<diff; i++) {
-				leads.push({
-					id: i,
-					coName: '-',
-					perc: '-',
-				    step: '-',
-				    date: '-',
-				    division: '-',
-				    rank: '5',
-				    owner: '-',
-				    alert: false,
-				    stack: true,
-				    visible: true
-				});
-			}
-		}
-		
-		// console.log(leads);
 		const result = leads.map((lead) => {
 			return (
 				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet}/>
@@ -114,9 +102,9 @@ class Card extends React.Component{
 		return result;
 	}
 
+
 	render() {
-		const leads = this.prepData();
-		const imageURL = "assets/img/" + this.state.owner.join('').toLowerCase() + ".jpg"
+		const leads = this.getLeads();
 
 		if (leads.length < 1) {
 			return <div id="loading">Loading...</div>
@@ -125,7 +113,7 @@ class Card extends React.Component{
 				<div className="card-container">
 					<div className="card-header">
 						<div className="person">
-							<img className="photo" src={imageURL} alt="owner photo" />
+							<img className="photo" src={"assets/img/" + this.state.owner.join('').toLowerCase() + ".jpg"} alt="owner photo" />
 							<div className="nametag">
 								<h1>{this.state.owner[0]}</h1>
 								<h1>{this.state.owner[1]}</h1>

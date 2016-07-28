@@ -3,12 +3,11 @@ export function parseData(event, data) {
 	let knownNames = [];
 
 	data.map((d) => { 
-		// ** theoretically, this is where you could filter only new updates
 		// add defaults for use in components later
-		d.stack = true; 
-		d.visible = true;
+		d.stack = true; 		// affects 'hide' class for a Row (display: none, opacity: 0)
+		d.visible = true;		// affects 'visible' class for a Row (opacity: 1)
 		if (checkDate(d.date)) {
-			d.alert = true;
+			d.alert = true;		// afects alert animation class (controlled by animate.min.css)	
 		} else {
 			d.alert = false;
 		}
@@ -24,8 +23,26 @@ export function parseData(event, data) {
 		}		 
 	});
 	
-	// console.log(knownNames);
-	// console.log(result);
+	for (var r of result) {
+		if (r.leads.length < 5) {
+			const diff = 5 - r.leads.length;
+			for (var i=0; i<diff; i++) {
+				r.leads.push({
+					id: i+10,
+					coName: '-',
+					perc: '-',
+				    step: '-',
+				    date: '-',
+				    division: '-',
+				    rank: '5',
+				    owner: '-',
+				    alert: false,
+				    stack: true,
+				    visible: true
+				});
+			}
+		}
+	}
 	return result;
 }
 
@@ -44,3 +61,23 @@ function checkDate(date) {
 	}
 }
 
+/*
+if (leads.length < 5) {
+	const diff = 5 - leads.length;
+	for (var i=0; i<diff; i++) {
+		leads.push({
+			id: i+10,
+			coName: '-',
+			perc: '-',
+		    step: '-',
+		    date: '-',
+		    division: '-',
+		    rank: '5',
+		    owner: '-',
+		    alert: false,
+		    stack: true,
+		    visible: true
+		});
+	}
+}
+*/

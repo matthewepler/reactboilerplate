@@ -44,10 +44,14 @@ class Row extends React.Component {
 		this.setState({ hover: !this.state.hover });
 	}
 
-	handleClickClosed() {
-		console.log('click');
-		this.state.open = !this.state.open;
-		this.props.expandOne(this.props.lead.id);
+	handleClickClosed(event) {
+		if (!event.target.classList.contains('blank')) {
+			this.state.open = !this.state.open;
+			this.props.expandOne(this.props.lead.id);	
+		} else {
+			console.log("blank, not doin nuthin");
+		}
+		
 	}
 		
 	handleClickOpen() {
@@ -79,10 +83,10 @@ class Row extends React.Component {
 			return (
 				<ul className={rowClasses} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)} onClick={this.handleClickClosed.bind(this)}>
 					<li className="co-name">
-					<AnimateOnChange
+						<AnimateOnChange
 								baseClassName="animated" 
-        				animationClassName="flipInX" 
-        				animate={this.state.updates.includes("coName")}>
+        						animationClassName="flipInX" 
+        						animate={this.state.updates.includes("coName")}>
 									{this.props.lead.coName}
 							</AnimateOnChange>	
 					</li>
@@ -91,8 +95,8 @@ class Row extends React.Component {
 						<li className="row-data-bit">
 							<AnimateOnChange
 								baseClassName="animated" 
-        				animationClassName="flipInX" 
-        				animate={this.state.updates.includes("perc")}>
+        						animationClassName="flipInX" 
+        						animate={this.state.updates.includes("perc")}>
 									{this.props.lead.perc}
 							</AnimateOnChange>	
 						</li>
@@ -100,8 +104,8 @@ class Row extends React.Component {
 						<li className="row-data-bit">
 							<AnimateOnChange
 								baseClassName="animated" 
-        				animationClassName="flipInX" 
-        				animate={this.state.updates.includes("step")}>
+        						animationClassName="flipInX" 
+        						animate={this.state.updates.includes("step")}>
 									{this.props.lead.step}
 							</AnimateOnChange>
 						</li>
@@ -109,8 +113,8 @@ class Row extends React.Component {
 						<li className="row-data-bit">
 							<AnimateOnChange
 								baseClassName="animated" 
-        				animationClassName="flipInX" 
-        				animate={this.state.updates.includes("date")}>
+        						animationClassName="flipInX" 
+        						animate={this.state.updates.includes("date")}>
 									{this.props.lead.date}
 							</AnimateOnChange>
 						</li>
