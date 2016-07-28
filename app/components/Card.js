@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'underscore'
 import FlipMove from 'react-flip-move';
+import classNames from 'classnames';
 import equal from 'deep-equal';
 
 // components
@@ -76,7 +77,7 @@ class Card extends React.Component{
 		const leads = _.sortBy(this.state.data, 'rank');
 		const result = leads.map((lead) => {
 			return (
-				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet} openId={this.state.openId} />
+				<Row lead={lead} key={lead.id} expandOne={this.expandOne.bind(this)} closeOne={this.closeOne.bind(this)} polling={this.state.poll} openReady={this.state.openReady} stackSet={this.state.stackSet} openId={this.state.openId} dark={this.props.dark} />
 			)	
 		});
 		return result;
@@ -84,16 +85,26 @@ class Card extends React.Component{
 
 
 	render() {
+		const cardClasses = classNames({
+			'card-base' : true,
+			'dark' : this.props.dark,
+		});
+
 		const leads = this.getLeads();
 
 		if (leads.length < 1) {
-			return <div id="loading">Loading...</div>
+			return (
+				<div className={cardClasses}>
+					<i className="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+					<span className="sr-only">Loading...</span>
+				</div>
+			)
 		} else {
 			return (
-				<div className="card-container">
+				<div className={cardClasses}>
 					<div className="card-header">
 						<div className="person">
-							<img className="photo" src={"assets/img/" + this.state.owner.join('').toLowerCase() + ".jpg"} alt="owner photo" />
+							<img className={this.props.dark ? "photo photo-dark" : "photo photo-light"} src={"assets/img/" + this.state.owner.join('').toLowerCase() + ".jpg"} alt="owner photo" />
 							<div className="nametag">
 								<h1>{this.state.owner[0]}</h1>
 								<h1>{this.state.owner[1]}</h1>

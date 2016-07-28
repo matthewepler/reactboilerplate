@@ -1,6 +1,6 @@
 @import './base.scss';
 
-.card-container {
+.card-base {
 	background: white;
 	box-shadow: 1px 1px 3px rgba(63, 63, 63, 0.5);  // h v blur spread color
 	display: inline-block;
@@ -12,24 +12,14 @@
 		padding: 1rem 1rem;
 		position: relative;
 
-		&:after {
-			content: "";
-			clear: both;
-			display: table;
-		}
-
 		.photo {
-			border: 1px solid #7F7F7F;
 			border-radius: 50%;
-			float: left;
-			height: 85px;
-			width: 85px;
+			height: 70px;
+			width: 70px;
 		}
 		.nametag {
 			line-height: 15px;
-			position: absolute;
-    		bottom: 0;
-    		left: 117px;
+			margin-bottom: -10px;
 		}
 
 		.card-rank {
@@ -37,6 +27,18 @@
 			float: right;
 			font-family: gotham-lt;
 			font-size: 2rem;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
 		}
 	}
 }
+
+.photo-light {
+	border: 1px solid #7F7F7F;
+}
+
+.photo-dark {
+	border: none;
+}
+

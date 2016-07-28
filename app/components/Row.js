@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Panel } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AnimateOnChange from 'react-animate-on-change';
 import equal from 'deep-equal';
@@ -68,10 +67,11 @@ class Row extends React.Component {
 		
 		const rowClasses = classNames({
 			'row-base': true,
+			'row-dark' : this.props.dark,
 			'row-closed': !this.props.openReady, // triggered at end of animation of a row to the top
 			'row-open' : this.props.openReady,
-			'safety' : this.props.lead.division === 'safety',
 			'blank' : this.props.lead.division === '-',
+			'safety' : this.props.lead.division === 'safety',
 			'hide' : this.props.openId != null && this.props.openId !== this.props.lead.id, 
 			'visible' : this.state.visible,
 			'animated pulse infinite' : this.props.lead.alert && this.props.stackSet, //animate.min.css

@@ -2,7 +2,7 @@ $lg-screen:  1600;
 $med-screen: 768;
 $sm-screen:  480;
 
-$card-height: 369px;
+$card-height: 442px;
 $card-width: 400px;
 
 @mixin forLargeScreens($media) {
@@ -40,12 +40,39 @@ body {
 	color: black;
 }
 
-.app-container {
+.app-base {
 	align-content: flex-end;
+	background-color: white;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;	
-	margin: 4% auto;
+	margin: 2% auto;
+
+	.skin-button {
+		font-size: 20pt;
+		padding: 1rem 1rem;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		.skin-button-light {
+			color: #DBDBDB;
+		}
+
+		.skin-button-dark {
+			color: #50158B;
+		}
+	}
+}
+
+.dark {
+	background-color: #1B072E;
+	color: white;
+	box-shadow: none;
 }
 
