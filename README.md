@@ -85,7 +85,7 @@ module.exports = {
 			{
 				test: /\.css$/, // for any third-party stylesheets
 				exclude: /node_modules/,
-				loader: ["style", "css", "postcss"]
+				loaders: ["style", "css", "postcss"]
 			},
 			{
 				test: /\.scss$/, // for my scss sheets. imported in App.js
