@@ -102,6 +102,12 @@ module.exports = {
       }
 		]
 	},
+	node: {
+	    console: true,
+	    fs: 'empty',
+	    net: 'empty',
+	    tls: 'empty'
+  	},
 	eslint: {
     configFile: './eslint.js',
     useEslintrc: false
